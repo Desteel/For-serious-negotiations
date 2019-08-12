@@ -23,3 +23,26 @@ if (!this.isLoading) {
   }
 }
 ```
+
+ В сторе используем что-то вроде
+ ```
+ search: flow(function*(payload: SearchPayload) {
+    const response = yield api.search(payload);
+    const data: TData[] = response.data;
+
+    return data; //ситуативно
+  }),
+ ```
+ 
+В файле api
+```
+export function search(
+  payload: TPayload,
+  config?: AxiosRequestConfig
+): AxiosPromise<any> {
+  return axiosInstance.axios.get(
+    "/...?" + queryString.stringify(payload),
+    config
+  );
+}
+```
