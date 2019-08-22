@@ -67,9 +67,11 @@ reset = () => {
   hasMorePage: boolean = true;
 }
 
-//переключаем порядок сортировки
-toggleSortingOrder = () => {
-  activeSortingOrder = +!activeSortingOrder
+onChangeSorting = (newSortingType: SortingTypes) => {
+  activeSortingType === newSortingType ?
+    activeSortingOrder = +!activeSortingOrder //переключаем порядок сортировки
+  :
+    activeSortingType = newSortingType   
 }
 
 // to be continued...
