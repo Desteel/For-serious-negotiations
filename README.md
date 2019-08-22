@@ -47,6 +47,22 @@ export function search(
 }
 ```
 
+# Fetch and sort data with pagination with API for search
+Достаточно простая логика для реализации поиска, сортировки с установкой типа и порядка сортировки и пагинацией для lazyload.
+С чем стартуем (с учетом использования mobx):
+```
+searchString: string = "";
+
+//пагинация
+currentPage: number = INITIAL_PAGE_NUMBER; //номер страницы для загрузки
+hasMorePage: boolean = true; //есть ли еще страницы
+
+//сортировка
+activeSortingType: SortingTypes = SortingTypes.TYPE;
+activeSortingOrder: {increase: 0, decrease: 1} = SortingOrdersTypes.INCREASE;
+
+```
+
 
 # Async await
 Вроде бы все правильно написано, но ничего не работает? Стоит проверить, стоит ли await в нужном месте. А именно, в том, где идет получение promise.
