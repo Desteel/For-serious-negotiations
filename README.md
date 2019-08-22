@@ -61,6 +61,19 @@ hasMorePage: boolean = true; //есть ли еще страницы
 activeSortingType: SortingTypes = SortingTypes.TYPE;
 activeSortingOrder: {increase: 0, decrease: 1} = SortingOrdersTypes.INCREASE;
 
+//понадобится reset для пагинации
+reset = () => {
+  currentPage: number = INITIAL_PAGE_NUMBER;
+  hasMorePage: boolean = true;
+}
+
+//переключаем порядок сортировки
+toggleSortingOrder = () => {
+  activeSortingOrder = +!activeSortingOrder
+}
+
+// to be continued...
+
 ```
 
 
